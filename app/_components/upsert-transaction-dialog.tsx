@@ -137,9 +137,9 @@ const UpsertTransactionDialog = ({ isOpen, setIsOpen, defaultValues, transaction
                   <FormControl>
                     <MoneyInput placeholder="Digite o valor..."
                     value={field.value}
-                    onValueChange={({ floatValue }) =>
-                      field.onChange(floatValue)
-                    }
+                    onValueChange={({ floatValue }: { floatValue?: number }) =>
+                      field.onChange(floatValue || 0) // Garantindo que o valor seja um número
+                    }
                     onBlur={field.onBlur}
                     disabled={field.disabled}
                     />
